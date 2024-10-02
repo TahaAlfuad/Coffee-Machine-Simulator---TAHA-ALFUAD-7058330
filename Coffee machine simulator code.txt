@@ -22,7 +22,81 @@
 #define LOW_MILK_THRESHOLD 100
 #define LOW_CHOCOLATE_THRESHOLD 20
 
-int espresso_beans, espresso_water, espresso_milk, espresso_chocolate;
-int cappuccino_beans, cappuccino_water, cappuccino_milk, cappuccino_chocolate;
-int mocha_beans, mocha_water, mocha_milk, mocha_chocolate;
-float total_amount;
+float total_amount = 0.0;
+
+float beans = 999.0; 
+float water = 999.0; 
+float milk = 999.0; 
+float chocolate = 999.0;
+
+int main() {
+      while (1) {
+
+     printf("Welcome to the Self-Service Coffee Maker!\n\n\n");
+        printf("1. Order a coffee type\n\n");
+        printf("2. Admin mode for the coffee maker operator\n\n");
+        printf("3. End the application execution.\n\n");
+        printf("Enter your choice: ");
+
+        int choice;
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                orderCoffee();
+                break;
+            case 2:
+                adminMode();
+                break;
+            case 3:
+                printf("Thank you for using the Self-Service Coffee Maker!\n");
+                return 0;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+     }
+
+
+    return 0;
+}
+
+void orderCoffee() {
+    printf("Select a coffee type:\n");
+    printf("1. Press 1 for Espresso - 3.5 AED\n\n");
+    printf("2. Press 2 for Cappuccino - 4.5 AED\n\n");
+    printf("3. Press 3 for Mocha - 5.5 AED\n\n");
+    printf("4. Press 0 to Exit\n\n");
+    printf("Enter your choice: ");
+
+    int choice;
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            makeEspresso();
+            break;
+        case 2:
+            makeCappuccino();
+            break;
+        case 3:
+            makeMocha();
+            break;
+        default:
+            printf("Invalid choice. Please try again.\n");
+    }
+}
+
+
+void makeEspresso() {
+    if (beans < ESPRESSO_BEANS || water < ESPRESSO_WATER) {
+        printf("“ Unavailable due to temporarily insufficient ingredients.\n");
+        return;
+    }
+    beans -= ESPRESSO_BEANS;
+    water -= ESPRESSO_WATER;
+    total_amount += ESPRESSO_PRICE;
+
+ printf("Espresso made successfully. Total amount: %.2f AED\n", total_amount);
+    
+}
+
