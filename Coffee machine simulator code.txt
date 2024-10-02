@@ -50,7 +50,7 @@ int main() {
                 break;
             case 3:
                 printf("Thank you for using the Self-Service Coffee Maker!\n");
-                return 0;
+                return 0;  
             default:
                 printf("Invalid choice. Please try again.\n");
         }
@@ -81,6 +81,9 @@ void orderCoffee() {
         case 3:
             makeMocha();
             break;
+        case 0:
+            printf("Exiting to Previous Menu!\n");
+            return 0;
         default:
             printf("Invalid choice. Please try again.\n");
     }
