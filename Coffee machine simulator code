@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+#define ESPRESSO_BEANS 8
+#define ESPRESSO_WATER 30
+#define ESPRESSO_PRICE 3.5
+
+#define CAPPUCCINO_BEANS 8
+#define CAPPUCCINO_WATER 30
+#define CAPPUCCINO_MILK 70
+#define CAPPUCCINO_PRICE 4.5
+
+#define MOCHA_BEANS 8
+#define MOCHA_WATER 39
+#define MOCHA_MILK 160
+#define MOCHA_CHOCOLATE_SYRUP 30
+#define MOCHA_PRICE 5.5
+
+#define ADMIN_PASSWORD "1234taha"
+
+#define LOW_BEANS_THRESHOLD 10
+#define LOW_WATER_THRESHOLD 50
+#define LOW_MILK_THRESHOLD 100
+#define LOW_CHOCOLATE_THRESHOLD 20
+
+float total_amount = 0.0;
+
+float beans = 999.0; 
+float water = 999.0; 
+float milk = 999.0; 
+float chocolate = 999.0;
