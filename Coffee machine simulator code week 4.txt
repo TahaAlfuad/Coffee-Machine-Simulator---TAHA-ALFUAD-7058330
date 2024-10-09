@@ -1,0 +1,170 @@
+#include <stdio.h>
+
+#define ESPRESSO_BEANS 8
+#define ESPRESSO_WATER 30
+#define ESPRESSO_PRICE 3.5
+
+#define CAPPUCCINO_BEANS 8
+#define CAPPUCCINO_WATER 30
+#define CAPPUCCINO_MILK 70
+#define CAPPUCCINO_PRICE 4.5
+
+#define MOCHA_BEANS 8
+#define MOCHA_WATER 39
+#define MOCHA_MILK 160
+#define MOCHA_CHOCOLATE_SYRUP 30
+#define MOCHA_PRICE 5.5
+
+#define ADMIN_PASSWORD "1234taha"
+
+#define LOW_BEANS_THRESHOLD 10
+#define LOW_WATER_THRESHOLD 50
+#define LOW_MILK_THRESHOLD 100
+#define LOW_CHOCOLATE_THRESHOLD 20
+
+float total_amount = 0.0;
+
+float beans = 999.0; 
+float water = 999.0; 
+float milk = 999.0; 
+float chocolate = 999.0;
+
+int main() {
+      while (1) {
+
+     printf("Welcome to the Self-Service Coffee Maker!\n\n\n");
+        printf("1. Order a coffee type\n\n");
+        printf("2. Admin mode for the coffee maker operator\n\n");
+        printf("3. End the application execution.\n\n");
+        printf("Enter your choice: ");
+
+        int choice;
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                orderCoffee();
+                break;
+            case 2:
+                adminMode();
+                break;
+            case 3:
+                printf("Thank you for using the Self-Service Coffee Maker!\n");
+                return 0;  
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+     }
+
+
+    return 0;
+}
+
+void orderCoffee() {
+    printf("Select a coffee type:\n");
+    printf("1. Press 1 for Espresso - 3.5 AED\n\n");
+    printf("2. Press 2 for Cappuccino - 4.5 AED\n\n");
+    printf("3. Press 3 for Mocha - 5.5 AED\n\n");
+    printf("4. Press 0 to Exit\n\n");
+    printf("Enter your choice: ");
+
+    int choice;
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+
+        if (beans >= ESPRESSO_BEANS && water >= ESPRESSO_WATER) {
+        price = ESPRESSO_PRICE;
+
+        printf("You have selected Espresso - 3.5 AED);
+        printf("Confirm your selection (1/0): ");
+        scanf("%d", &choice);
+        if(choice == 1){
+              while (paid_amount < price){
+                printf("Insert coin (1 or 0.5): ");
+                float coin;
+
+                scanf("%f", &coin);
+                if( coin == 1 || coin == 0.5);{
+                    paid_amount += coin;
+                } else {
+                    printf("Invalid coin. Please collect the invalid coin and insert a valid one.);
+                }
+              }
+        }
+        }
+    
+    beans -= ESPRESSO_BEANS;
+    water -= ESPRESSO_WATER;
+    total_amount += ESPRESSO_PRICE;
+
+    // have to display to the user the coffee she purchased, its price and her change next.
+
+
+
+
+
+        else { 
+              printf("“ Unavailable due to temporarily insufficient ingredients.\n");
+        }
+            break;
+        case 2:
+            makeCappuccino();
+            break;
+        case 3:
+            makeMocha();
+            break;
+        case 0:
+            printf("Exiting to Previous Menu!\n");
+            return 0;
+        default:
+            printf("Invalid choice. Please try again.\n");
+    }
+}
+
+// made change to the code to remove the section below and implement above
+void makeEspresso() {
+    if (beans < ESPRESSO_BEANS || water < ESPRESSO_WATER) {
+        printf("“ Unavailable due to temporarily insufficient ingredients.\n");
+        return;
+    }
+    beans -= ESPRESSO_BEANS;
+    water -= ESPRESSO_WATER;
+    total_amount += ESPRESSO_PRICE;
+
+
+
+
+
+ printf("Espresso made successfully. Total amount: %.2f AED\n", total_amount);
+    
+}
+
+void makeCappuccino() {
+    if (beans <  CAPPUCCINO_BEANS || water <  CAPPUCCINO_WATER) {
+        printf("“ Unavailable due to temporarily insufficient ingredients.\n");
+        return;
+    }
+    beans -=  CAPPUCCINO_BEANS;
+    water -=  CAPPUCCINO_WATER;
+    total_amount += CAPPUCCINO_PRICE;
+
+ printf("Cappuccino made successfully. Total amount: %.2f AED\n", total_amount);
+    
+}
+
+void makeMOCHA() {
+    if (beans < MOCHA_BEANS || water < MOCHA_WATER) {
+        printf("“ Unavailable due to temporarily insufficient ingredients.\n");
+        return;
+    }
+    beans -= MOCHA_BEANS;
+    water -= MOCHA_WATER;
+    total_amount += MOCHA_PRICE;
+
+ printf("Mocha made successfully. Total amount: %.2f AED\n", total_amount);
+    
+}
+
+
